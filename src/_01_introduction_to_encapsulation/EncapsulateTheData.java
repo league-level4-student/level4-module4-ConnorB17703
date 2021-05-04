@@ -1,5 +1,5 @@
 package _01_introduction_to_encapsulation;
-
+//YOU LEFT OFF HERE	
 /*
  * Encapsulation is a way of protecting the data in a class from being
  * unintentionally altered from another class.
@@ -23,9 +23,43 @@ public class EncapsulateTheData {
 	//2. Create a new JUnit Test case and write tests to verify that 
 	//   the member variables' getters and setters are working
 	
-	int itemsReceived; //must not be negative. All negative arguments get set to 0.
-	float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
+	private int itemsReceived; //must not be negative. All negative arguments get set to 0.
+	
+	//getter
+	public int getItemsReceived(){
+		return itemsReceived;
+	}
+	
+	//setter
+	public void setItemsReceived(int n){
+		if(n < 0){
+			n = 0;
+		}
+		itemsReceived = n;
+	}
+	
+	
+	private float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
+	
+	public float getDegreesTurned(){
+		return degreesTurned;
+	}
+	
+	public void setDegreesTurned(float d){
+		if(d < 0.0){
+			d = 0;
+		}else if(d >360){
+			d = 360;
+		}
+		degreesTurned = d;
+	}
+	
 	String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
+	
+	//YOU LEFT OFF HERE ENCAPSULATING THIS VARIABLE
+	//MAKE A GETTER AND SETTER (IN SETTER, CODE CONDITIONS)
+	
+	
 	Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
 	
 	public static void main(String[] args) {
