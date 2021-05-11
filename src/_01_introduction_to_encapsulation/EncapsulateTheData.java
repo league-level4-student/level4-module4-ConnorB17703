@@ -54,13 +54,34 @@ public class EncapsulateTheData {
 		degreesTurned = d;
 	}
 	
-	String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
+	private String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
 	
-	//YOU LEFT OFF HERE ENCAPSULATING THIS VARIABLE
-	//MAKE A GETTER AND SETTER (IN SETTER, CODE CONDITIONS)
+	public String getNomenolature(){
+		return nomenclature;
+		
+	}
+	
+	public void setNomenolacture(String s){
+		if(s.equals("")){
+			s = " ";
+		}
+		nomenclature = s;
+	}
 	
 	
-	Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
+	
+	private Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
+	
+	public Object getMemberObj(){
+		return memberObj;
+	}
+	
+	public void setMemberObj(Object o){
+		if(o instanceof String == true){
+			o = new Object();
+		}
+		memberObj = o;
+	}
 	
 	public static void main(String[] args) {
 		
