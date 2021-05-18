@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -21,6 +23,10 @@ public class PolymorphWindow extends JPanel implements ActionListener{
     Polymorph bluePoly;
     Polymorph redPoly;
     Polymorph movingPoly;
+    Polymorph circlePoly;
+    Polymorph mousePoly;
+    Polymorph imagePoly;
+    Polymorph messagePoly;
     
     ArrayList<Polymorph> p = new ArrayList<Polymorph>();
    
@@ -41,10 +47,20 @@ public class PolymorphWindow extends JPanel implements ActionListener{
    	 bluePoly = new BluePolymorph(100, 100);
    	 redPoly = new RedMorph(50, 50);
    	 movingPoly = new MovingMorph(150,100);
+   	 circlePoly = new CircleMorph(100, 400);
+   	 mousePoly = new MouseMorph(250,250);
+   	 imagePoly = new ImageMorph(400, 200);
+   	 messagePoly = new MessageMorph(400,400);
+   	 window.addMouseMotionListener((MouseMotionListener) mousePoly);
+   	 window.addMouseListener((MouseListener) messagePoly);
    	 
    	 p.add(bluePoly);
    	 p.add(redPoly);
    	 p.add(movingPoly);
+   	 p.add(circlePoly);
+   	 p.add(mousePoly);
+   	 p.add(imagePoly);
+   	 p.add(messagePoly);
    	 
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
