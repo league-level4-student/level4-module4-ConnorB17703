@@ -1,12 +1,11 @@
 package _04_hospital;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+
 
 /* requirements:
  * 1. hospital has doctors and patients
@@ -15,10 +14,11 @@ import junit.framework.TestCase;
  * 4. doctors can have no more than 3 patients
  */
 
-public class HospitalTest extends TestCase {
+public class HospitalTest {
 
 	Hospital testHospital = new Hospital();
 
+	@Test
 	public void testAddDoctor() {
 		testHospital.addDoctor(new GeneralPractitioner());
 		testHospital.addDoctor(new GeneralPractitioner());
@@ -26,6 +26,7 @@ public class HospitalTest extends TestCase {
 		assertEquals(3, testHospital.getDoctors().size());
 	}
 
+	@Test
 	public void testAddPatient() throws Exception {
 		testHospital.addPatient(new Patient());
 		testHospital.addPatient(new Patient());
@@ -34,6 +35,7 @@ public class HospitalTest extends TestCase {
 	}
 
 	/* Fix asserts one at a time */
+	@Test
 	public void testDoctorsHaveSpecialties() throws Exception {
 		Doctor testDoctor = new Doctor();
 		assertEquals(false, testDoctor.performsSurgery());
@@ -59,6 +61,7 @@ public class HospitalTest extends TestCase {
 	}
 
 	/* When you check a patient's pulse, they feel cared for */
+	@Test
 	public void testCheckPulse() throws Exception {
 		Patient testPatient = new Patient();
 		assertEquals(false, testPatient.feelsCaredFor());
@@ -67,6 +70,7 @@ public class HospitalTest extends TestCase {
 	}
 
 	/* Doctors work on their Patients by checking their pulses. */
+	@Test
 	public void testDoctorsWork() throws Exception {
 		Doctor testDoctor = new GeneralPractitioner();
 		Patient max = new Patient();
@@ -81,6 +85,7 @@ public class HospitalTest extends TestCase {
 	}
 
 	/* test calling assignPatient when doctor is full throws exception */
+	@Test
 	public void testDoctorsCanOnlyHandle3Patients() throws Exception {
 		Doctor testDoctor = new Doctor();
 		testDoctor.assignPatient(new Patient());
@@ -95,11 +100,36 @@ public class HospitalTest extends TestCase {
 assertTrue(testDoctor.getPatients().size() == 3);
 	}
 
+	@Test
 	public void test8Patients() throws Exception {
 		// TODO: add 3 doctors to hospital
+		Doctor d = new Doctor();
+		Doctor d1 = new Doctor();
+		Doctor d2 = new Doctor();
 
+		testHospital.addDoctor(d);
+		testHospital.addDoctor(d1);
+		testHospital.addDoctor(d2);
 		// TODO: add 8 patients to hospital
 
+		Patient p = new Patient();
+		Patient p1 = new Patient();
+		Patient p2 = new Patient();
+		Patient p3 = new Patient();
+		Patient p4 = new Patient();
+		Patient p5 = new Patient();
+		Patient p6 = new Patient();
+		Patient p7 = new Patient();
+		
+		testHospital.addPatient(p);
+		testHospital.addPatient(p1);
+		testHospital.addPatient(p2);
+		testHospital.addPatient(p3);
+		testHospital.addPatient(p4);
+		testHospital.addPatient(p5);
+		testHospital.addPatient(p6);
+		testHospital.addPatient(p7);
+		
 		// hospital assigns patients to doctors
 		testHospital.assignPatientsToDoctors();
 		// hospital.getDoctors shows doctors have 3, 3, 2 patients
@@ -109,6 +139,6 @@ assertTrue(testDoctor.getPatients().size() == 3);
 		assertEquals(2, testDoctors.get(2).getPatients().size());
 	}
 
-
+//YOU ARE FIXING THIS METHOD
 
 }
