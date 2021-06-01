@@ -139,6 +139,5 @@ assertTrue(testDoctor.getPatients().size() == 3);
 		assertEquals(2, testDoctors.get(2).getPatients().size());
 	}
 
-//YOU ARE FIXING THIS METHOD
 
 }

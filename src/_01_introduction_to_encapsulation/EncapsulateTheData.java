@@ -1,5 +1,5 @@
 package _01_introduction_to_encapsulation;
-//YOU LEFT OFF HERE	
+
 /*
  * Encapsulation is a way of protecting the data in a class from being
  * unintentionally altered from another class.
